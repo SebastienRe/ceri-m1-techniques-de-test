@@ -9,7 +9,7 @@ on:
 
 jobs:
   run:
-    run-on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4.0.1
