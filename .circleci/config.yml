@@ -26,6 +26,8 @@ jobs:
       - run:
           name: Test
           command: mvn test
+      - codecov/upload:
+          file: target/site/jacoco/jacoco.xml
 
   # Define a job to be invoked later in a workflow.
 orbs:
