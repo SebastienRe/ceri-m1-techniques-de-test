@@ -31,7 +31,7 @@ jobs:
 
   # Define a job to be invoked later in a workflow.
 orbs:
-  codecov: codecov/codecov@4.0.1
+  codecov: codecov/codecov@latest_version
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
