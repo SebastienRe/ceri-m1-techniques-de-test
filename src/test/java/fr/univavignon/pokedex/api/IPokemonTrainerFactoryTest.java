@@ -27,4 +27,15 @@ public class IPokemonTrainerFactoryTest {
         assertEquals("Michel", trainer.getName());
         assertEquals(Team.INSTINCT, trainer.getTeam());
     }
+
+    @Test
+    public void testGetPokedex(){
+        IPokedexFactory pokedexFactory = mock(IPokedexFactory.class);
+        IPokedex pokedex = mock(IPokedex.class);
+        when(pokemonTrainerFactory.createTrainer("Michel", Team.INSTINCT, pokedexFactory)).thenReturn(
+                new PokemonTrainer("Michel", Team.INSTINCT, pokedex)
+        );
+        PokemonTrainer trainer = pokemonTrainerFactory.createTrainer("Michel", Team.INSTINCT, pokedexFactory);
+        assertEquals(pokedex, trainer.getPokedex());
+    }
 }
