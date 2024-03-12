@@ -28,4 +28,47 @@ class IPokemonFactoryTest {
 
         assertEquals(pokemonFactory.createPokemon(0, 613, 64, 4000, 4), Aquali);
     }
+
+
+    @Test
+    void testGetAttack(){
+        assertEquals(Aquali.getAttack(), 186);
+    }
+
+    @Test
+    void testGetDefense(){
+        assertEquals(Aquali.getDefense(), 168);
+    }
+
+    @Test
+    void testGetStamina(){
+        assertEquals(Aquali.getStamina(), 260);
+    }
+
+
+    @Test
+    void testGetCp(){
+        assertEquals(Aquali.getCp(), 2729);
+    }
+
+    @Test
+    void testGetHp(){
+        assertEquals(Aquali.getHp(), 202);
+    }
+
+    @Test
+    void testGetDust(){
+        assertEquals(Aquali.getDust(), 5000);
+    }
+
+    @Test
+    void testGetCandy(){
+        assertEquals(Aquali.getCandy(), 4);
+    }
+
+    @Test
+    void testGetIv(){
+        assertEquals(Aquali.getIv(), 100);
+    }
+
 }
