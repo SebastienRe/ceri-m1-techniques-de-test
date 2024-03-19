@@ -32,6 +32,25 @@ jobs:
       - run:
           name: Checkstyle
           command: mvn validate
+      - run:
+          name: Build docs
+          command: cd docs/ && make html
+      - persist_to_workspace:
+          root: docs/_build
+          paths: html
+      - run:
+          name: Generate Javadoc
+          command: mvn javadoc:javadoc
+      - run:
+          name: Push Javadoc to GitHub Pages
+          command: |
+            git config --global user.email "sebfabien13@gmail.com"
+            git config --global user.name "SebastienRe"
+            git checkout -b gh-pages
+            mv target/site/apidocs/* .
+            git add .
+            git commit -m "Update Javadoc"
+            git push -f origin gh-pages
 
   # Define a job to be invoked later in a workflow.
 orbs:
