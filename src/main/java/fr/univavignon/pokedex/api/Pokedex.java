@@ -7,9 +7,9 @@ import java.util.Comparator;
 
 public class Pokedex implements IPokedex {
 
-    private PokemonMetadataProvider pokemonMetadataProvider;
-    private PokemonFactory pokemonFactory;
-    private List<Pokemon> pokemons = new ArrayList<>();
+    private final PokemonMetadataProvider pokemonMetadataProvider;
+    private final PokemonFactory pokemonFactory;
+    private final List<Pokemon> pokemons = new ArrayList<>();
 
     public Pokedex(IPokemonMetadataProvider pokemonMetadataProvider, IPokemonFactory pokemonFactory) {
         this.pokemonMetadataProvider = (PokemonMetadataProvider) pokemonMetadataProvider;

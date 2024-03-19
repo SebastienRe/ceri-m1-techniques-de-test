@@ -56,10 +56,18 @@ class IPokedexTest {
         assertEquals(Aquali, pokemon);
     }
 
+
     @Test
     void getPokemonShouldThrowPokedexException() throws PokedexException {
         assertThrows(PokedexException.class, () -> {
             pokedex.getPokemon(0);
+        });
+    }
+
+    @Test
+    void getPokemonShouldThrowPokedexExceptionForInvalidIndex() throws PokedexException {
+        assertThrows(PokedexException.class, () -> {
+            pokedex.getPokemon(-1);
         });
     }
 
