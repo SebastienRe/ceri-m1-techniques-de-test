@@ -28,6 +28,10 @@ jobs:
           command: mvn test
       - codecov/upload:
           file: target/site/jacoco/jacoco.xml
+      # checkstyle
+      - run:
+          name: Checkstyle
+          command: mvn checkstyle:checkstyle
 
   # Define a job to be invoked later in a workflow.
 orbs:
@@ -43,4 +47,3 @@ workflows:
           filters:
             branches:
               only: master
-              
