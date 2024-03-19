@@ -33,7 +33,7 @@ class IPokemonMetadataProviderTest {
         });
     }
 
-    //test getters de PokemonMetadata
+
     @Test
     void testgetIndex(){
         assertEquals(MetaAquali.getIndex(), 133);
@@ -57,5 +57,35 @@ class IPokemonMetadataProviderTest {
     @Test
     void testGetStamina(){
         assertEquals(MetaAquali.getStamina(), 260);
+    }
+
+    @Test
+    void getPokemonMetadataExistingIndexAquali() throws PokedexException {
+        PokemonMetadataProvider provider = new PokemonMetadataProvider();
+        PokemonMetadata metadata = provider.getPokemonMetadata(133);
+        assertEquals(133, metadata.getIndex());
+        assertEquals("Aquali", metadata.getName());
+        assertEquals(186, metadata.getAttack());
+        assertEquals(168, metadata.getDefense());
+        assertEquals(260, metadata.getStamina());
+    }
+
+    @Test
+    void getPokemonMetadataExistingIndexBulbasaur() throws PokedexException {
+        PokemonMetadataProvider provider = new PokemonMetadataProvider();
+        PokemonMetadata metadata = provider.getPokemonMetadata(0);
+        assertEquals(0, metadata.getIndex());
+        assertEquals("Bulbasaur", metadata.getName());
+        assertEquals(126, metadata.getAttack());
+        assertEquals(126, metadata.getDefense());
+        assertEquals(90, metadata.getStamina());
+    }
+
+    @Test
+    void getPokemonMetadataNonExistingIndex() {
+        PokemonMetadataProvider provider = new PokemonMetadataProvider();
+        assertThrows(PokedexException.class, () -> {
+            provider.getPokemonMetadata(999);
+        });
     }
 }

@@ -5,20 +5,6 @@ import java.util.ArrayList;
 
 public class PokemonMetadataProvider implements IPokemonMetadataProvider {
 
-    /*
-    List<PokemonMetadata> pokemonsMetadata = new ArrayList<>();
-
-
-    @Override
-    public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
-        if (index < 0 || index >= pokemonsMetadata.size()) {
-            throw new PokedexException("Invalid index");
-        }
-        return pokemonsMetadata.get(index);
-
-    }
-    */
-
     @Override
     public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
         switch (index){

@@ -51,22 +51,21 @@ public class Pokedex implements IPokedex {
         Pokemon incompletePokemon = pokemonFactory.createPokemon(index, cp, hp, dust, candy);
         try {
             PokemonMetadata metadata = pokemonMetadataProvider.getPokemonMetadata(index);
+            if (metadata == null) throw new PokedexException("Invalid index");
             return new Pokemon(
                     metadata.getIndex(),
                     metadata.getName(),
-                    metadata.getAttack()  + (int) (Math.random() * 15),
-                    metadata.getDefense()  + (int) (Math.random() * 15),
+                    metadata.getAttack() + (int) (Math.random() * 15),
+                    metadata.getDefense() + (int) (Math.random() * 15),
                     metadata.getStamina() + (int) (Math.random() * 15),
                     incompletePokemon.getCp(),
                     incompletePokemon.getHp(),
                     incompletePokemon.getDust(),
                     incompletePokemon.getCandy(),
-                    (int) (Math.random() * 100)
-            );
+                    (int) (Math.random() * 100));
         } catch (PokedexException e) {
-            e.printStackTrace();
+            return null;
         }
-        return null;
     }
 
     @Override
