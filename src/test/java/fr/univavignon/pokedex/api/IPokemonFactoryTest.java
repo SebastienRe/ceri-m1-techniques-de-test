@@ -15,20 +15,43 @@ class IPokemonFactoryTest {
 
     @BeforeEach
     public void setUp() {
-        pokemonFactory = mock(IPokemonFactory.class);
+        pokemonFactory = new PokemonFactory();
         metadataProvider = mock(IPokemonMetadataProvider.class);
         Aquali = new Pokemon(133, "Aquali", 186, 168, 260, 2729, 202, 5000, 4, 100);
     }
 
     @Test
     void createPokemon() {
-
-        when(pokemonFactory.createPokemon(0, 613, 64, 4000, 4))
-                .thenReturn(Aquali);
-
-        assertEquals(pokemonFactory.createPokemon(0, 613, 64, 4000, 4), Aquali);
+        Pokemon a = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
+        assertEquals(a.getIndex(), 0);
+        assertEquals(a.getCp(), 613);
+        assertEquals(a.getHp(), 64);
+        assertEquals(a.getDust(), 4000);
+        assertEquals(a.getCandy(), 4);
     }
 
+    @Test
+    void createPokemonShouldThrowIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            pokemonFactory.createPokemon(-1, 100, 100, 1000, 10);
+        });
+        assertThrows(IllegalArgumentException.class, () -> {
+            pokemonFactory.createPokemon(151, 100, 100, 1000, 10);
+        });
+        assertThrows(IllegalArgumentException.class, () -> {
+            pokemonFactory.createPokemon(0, -1, 100, 1000, 10);
+        });
+        assertThrows(IllegalArgumentException.class, () -> {
+            pokemonFactory.createPokemon(0, 100, -1, 1000, 10);
+        });
+        assertThrows(IllegalArgumentException.class, () -> {
+            pokemonFactory.createPokemon(0, 100, 100, -1, 10);
+        });
+        assertThrows(IllegalArgumentException.class, () -> {
+            pokemonFactory.createPokemon(0, 100, 100, 1000, -1);
+        });
+
+    }
 
     @Test
     void testGetAttack(){

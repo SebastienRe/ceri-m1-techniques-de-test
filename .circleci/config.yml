@@ -35,17 +35,7 @@ jobs:
       - run:
           name: Generate Javadoc
           command: mvn javadoc:javadoc
-      - run:
-          name: Push Javadoc to GitHub Pages
-          command: |
-            git config --global user.email "sebfabien13@gmail.com"
-            git config --global user.name "SebastienRe"
-            git checkout -b gh-pages
-            mv target/site/apidocs/* .
-            git add .
-            git commit -m "Update Javadoc"
-            git push -f origin gh-pages
-    
+
 
   # Define a job to be invoked later in a workflow.
 orbs:
