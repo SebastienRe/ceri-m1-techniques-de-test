@@ -18,3 +18,7 @@ Il permet la gestion de pokedex avec des pokemons et des dresseurs.
 Le projet est testé avec JUnit et JaCoCo.
 
 ## Implementation Details
+
+## Commentaires 
+
+je me suis arreté au millieu du tp 5 episode 2, j'ai eu des difficultés à comprendre comment deployer la javadoc sur github pages + generer
