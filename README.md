@@ -1,8 +1,8 @@
 # Project Title
 
 ## Author Information
-- Name: Your Name
-- Group: Your Group
+- Name: Sébastien Ré
+- Group: M1 ILSEN ALT
 
 ## Badges
 [![SebastienRe](https://circleci.com/gh/SebastienRe/ceri-m1-techniques-de-test.svg?style=svg)](https://app.circleci.com/pipelines/github/SebastienRe/ceri-m1-techniques-de-test/18/workflows/de7886da-ffac-4397-bf6d-e9cfb851c925/jobs/20)
